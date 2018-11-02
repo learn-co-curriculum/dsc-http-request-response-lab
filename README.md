@@ -1,14 +1,16 @@
 
-# HTTP Request-Response Cycle - Lab
+# HTTP Request/Response Cycle - Lab
 
 ## Introduction 
 
 In this lab, we shall make use of the `requests` module commands and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"** to access NASA's space data. 
 
 ## Objectives
+
+You will be able to:
+
 * Understand and explain the HTTP Request/Response cycle
 * Make http requests in Python using the ‘requests’ library
-
 
 ## Open Notify 
 
@@ -60,7 +62,6 @@ The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (c
 
 ```python
 # Your comments 
-
 ```
 
 * Print the contents of the response and identify its current location
@@ -87,7 +88,6 @@ Let's repeat the above for the second endpoint `iss_pass.json`. This end point i
 
 ```python
 # Your comments 
-
 ```
 
 So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
