@@ -1,14 +1,16 @@
 
-# HTTP Request-Response Cycle - Lab
+# HTTP Request/Response Cycle - Lab
 
 ## Introduction 
 
 In this lab, we shall attempt to bring together everything we have thus far learned about APIs, Client/Server Communication principles and Python's `requests` library. We shall make use of the `requests` module's methods and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"**, in order to access NASA's space data. 
 
 ## Objectives
+
+You will be able to:
+
 * Understand and explain the HTTP Request/Response cycle
 * Make http requests in Python using the ‘requests’ library
-
 
 ## Open Notify 
 
