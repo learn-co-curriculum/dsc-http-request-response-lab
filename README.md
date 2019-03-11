@@ -3,7 +3,7 @@
 
 ## Introduction 
 
-In this lab, we shall make use of the `requests` module commands and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"** to access NASA's space data. 
+In this lab, we'll make use of the `requests` module commands and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"** to access NASA's space data. 
 
 ## Objectives
 
@@ -18,13 +18,9 @@ You will be able to:
 
 * Current Location of the International Space Station
 
-    * (The ISS is currently over 22.014° N, -101.057° E)
-
 * Overhead Pass Predictions for the International Space Station
 
 * Number of People in Space
-
-    * (There are currently 3 humans in space)
     
 ### API endpoints
 
@@ -43,14 +39,12 @@ The json extension simple tells us that the data is being returned in a JSON for
 
 In this lab, we'll be querying a this API to retrieve live data about the International Space Station (ISS). Details on OpenNofity , endpoints, syntax and services it offers can be viewed [Here](http://open-notify.org/Open-Notify-API/)
 
-![](iss.jpg)
-
-
+![](images/iss.jpg)
 
 ### Current location of International Space Station
 
 The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (current location of international space station). This endpoint gets the current latitude and longitude of the International Space Station.  Perform following tasks 
-* Make a get request to get the latest position of the international space station from the opennotify api's iss_now endpoint at http://api.open-notify.org/iss-now.json
+* Make a get request to get the latest position of the international space station from the opennotify api's `iss_now` endpoint at http://api.open-notify.org/iss-now.json
 * Check the status code of the response
 * Interpret the returned code
 
@@ -78,7 +72,7 @@ The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (c
 
 ### Check the next pass of International space station for a given location
 
-Let's repeat the above for the second endpoint `iss_pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations
+Let's repeat the above for the second endpoint `iss_pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
 
 
 ```python
@@ -139,4 +133,4 @@ Read the above documentation and perform following tasks:
 
 ## Summary 
 
-In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next we shall look at connecting to APIs which are not OPEN , i.e. we would need to paass in some authentication information and filter the results. 
+In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
