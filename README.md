@@ -3,7 +3,7 @@
 
 ## Introduction 
 
-In this lab, we shall attempt to bring together everything we have thus far learned about APIs, Client/Server Communication principles and Python's `requests` library. We shall make use of the `requests` module's methods and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"**, in order to access NASA's space data. 
+In this lab, we'll attempt to bring together everything we have thus far learned about APIs, Client/Server Communication principles and Python's `requests` library. We'll make use of the `requests` module's methods and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"**, in order to access NASA's space data. 
 
 ## Objectives
 
@@ -18,13 +18,9 @@ You will be able to:
 
 * Current Location of the International Space Station
 
-    * (The ISS is currently over 22.014° N, -101.057° E)
-
 * Overhead Pass Predictions for the International Space Station
 
 * Number of People in Space
-
-    * (There are currently 3 humans in space)
     
 ### API endpoints
 
@@ -43,7 +39,7 @@ The json extension simple tells us that the data is being returned in a JSON for
 
 In this lab, we'll be querying a this API to retrieve live data about the International Space Station (ISS). Details on OpenNofity , endpoints, syntax and services it offers can be viewed [Here](http://open-notify.org/Open-Notify-API/)
 
-![](iss.jpg)
+![](images/iss.jpg)
 
 ### Current location of International Space Station
 
@@ -63,7 +59,7 @@ print(response.status_code)
 ```
 
     200
-
+    
 
 
 ```python
@@ -78,8 +74,8 @@ print(response.status_code)
 print(response.text)
 ```
 
-    {"timestamp": 1539962082, "message": "success", "iss_position": {"latitude": "-36.5945", "longitude": "-174.1912"}}
-
+    {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
+    
 
 
 ```python
@@ -100,7 +96,7 @@ print(response.status_code)
 ```
 
     400
-
+    
 
 
 ```python
@@ -142,41 +138,41 @@ print(response.text)
 ```
 
     200
-    {'Server': 'nginx/1.10.3', 'Date': 'Fri, 19 Oct 2018 15:14:49 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
+    {'Server': 'nginx/1.10.3', 'Date': 'Mon, 11 Mar 2019 07:38:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
     {
       "message": "success", 
       "request": {
         "altitude": 100, 
-        "datetime": 1539962089, 
+        "datetime": 1552289629, 
         "latitude": 40.71, 
         "longitude": -74.0, 
         "passes": 5
       }, 
       "response": [
         {
-          "duration": 577, 
-          "risetime": 1539963737
+          "duration": 550, 
+          "risetime": 1552290380
         }, 
         {
-          "duration": 554, 
-          "risetime": 1539969601
+          "duration": 581, 
+          "risetime": 1552296219
         }, 
         {
-          "duration": 621, 
-          "risetime": 1539975406
+          "duration": 642, 
+          "risetime": 1552302011
         }, 
         {
-          "duration": 628, 
-          "risetime": 1539981195
+          "duration": 541, 
+          "risetime": 1552307832
         }, 
         {
-          "duration": 285, 
-          "risetime": 1539987108
+          "duration": 601, 
+          "risetime": 1552362056
         }
       ]
     }
     
-
+    
 
 
 ```python
@@ -206,8 +202,8 @@ print(dict(data))
 ```
 
     3
-    {'people': [{'name': 'Sergey Prokopyev', 'craft': 'ISS'}, {'name': 'Alexander Gerst', 'craft': 'ISS'}, {'name': 'Serena Aunon-Chancellor', 'craft': 'ISS'}], 'message': 'success', 'number': 3}
-
+    {'people': [{'name': 'Oleg Kononenko', 'craft': 'ISS'}, {'name': 'David Saint-Jacques', 'craft': 'ISS'}, {'name': 'Anne McClain', 'craft': 'ISS'}], 'number': 3, 'message': 'success'}
+    
 
 
 ```python
@@ -216,4 +212,4 @@ print(dict(data))
 
 ## Summary 
 
-In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next we shall look at connecting to APIs which are not OPEN , i.e. we would need to paass in some authentication information and filter the results. 
+In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next we'll look at connecting to APIs which are not OPEN , i.e. we would need to pass in some authentication information and filter the results. 
