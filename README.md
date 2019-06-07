@@ -44,7 +44,7 @@ In this lab, we'll be querying a this API to retrieve live data about the Intern
 ### Current location of International Space Station
 
 The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (current location of international space station). This endpoint gets the current latitude and longitude of the International Space Station.  Perform following tasks 
-* Make a get request to get the latest position of the international space station from the opennotify api's `iss_now` endpoint at http://api.open-notify.org/iss-now.json
+* Make a get request to get the latest position of the international space station from the opennotify api's `iss-now` endpoint at http://api.open-notify.org/iss-now.json
 * Check the status code of the response
 * Interpret the returned code
 
@@ -72,7 +72,7 @@ The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (c
 
 ### Check the next pass of International space station for a given location
 
-Let's repeat the above for the second endpoint `iss_pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
+Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
 
 
 ```python
