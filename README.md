@@ -59,7 +59,7 @@ print(response.status_code)
 ```
 
     200
-    
+
 
 
 ```python
@@ -75,7 +75,7 @@ print(response.text)
 ```
 
     {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
-    
+
 
 
 ```python
@@ -84,7 +84,7 @@ print(response.text)
 
 ### Check the next pass of International space station for a given location
 
-Let's repeat the above for the second endpoint `iss_pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations
+Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations
 
 
 ```python
@@ -96,7 +96,7 @@ print(response.status_code)
 ```
 
     400
-    
+
 
 
 ```python
@@ -172,7 +172,7 @@ print(response.text)
       ]
     }
     
-    
+
 
 
 ```python
@@ -203,7 +203,7 @@ print(dict(data))
 
     3
     {'people': [{'name': 'Oleg Kononenko', 'craft': 'ISS'}, {'name': 'David Saint-Jacques', 'craft': 'ISS'}, {'name': 'Anne McClain', 'craft': 'ISS'}], 'number': 3, 'message': 'success'}
-    
+
 
 
 ```python
