@@ -72,14 +72,14 @@ print(response.status_code)
     200
 
 
-* Print the contents of the response and identify its current location
-
 
 ```python
 # __SOLUTION__ 
 # Your comments 
 # code 200 -- everything went okay, and the result has been returned . 
 ```
+
+* Print the contents of the response and identify its current location
 
 
 ```python
@@ -100,15 +100,15 @@ print(response.text)
     {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
 
 
-### Check the next pass of International space station for a given location
-
-Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
-
 
 ```python
 # __SOLUTION__ 
 # Interpret your results using the API - where is the space station right now ?
 ```
+
+### Check the next pass of International space station for a given location
+
+Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
 
 
 ```python
@@ -118,6 +118,27 @@ Let's repeat the above for the second endpoint `iss-pass.json`. This end point i
 
 ```python
 # Your comments 
+```
+
+
+```python
+# __SOLUTION__ 
+# Make a get request to get the latest position of the international space station from the opennotify api.
+response = requests.get("http://api.open-notify.org/iss-pass.json")
+
+# Print the status code of the response.
+print(response.status_code)
+```
+
+    400
+
+
+
+```python
+# __SOLUTION__ 
+# Your comments 
+# code 400 -- the server thinks you made a bad request. 
+# This can happen when you don't send along the right data, among other things.
 ```
 
 So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
@@ -139,44 +160,13 @@ Perform the following tasks :
 
 
 ```python
-# __SOLUTION__ 
-# Make a get request to get the latest position of the international space station from the opennotify api.
-response = requests.get("http://api.open-notify.org/iss-pass.json")
-
-# Print the status code of the response.
-print(response.status_code)
-```
-
-    400
-
-
-
-```python
 # You Code Here
-```
-
-
-```python
-# __SOLUTION__ 
-# Your comments 
-# code 400 -- the server thinks you made a bad request. 
-# This can happen when you don't send along the right data, among other things.
 ```
 
 
 ```python
 # Check the API and interpret your results - when will ISS pass over NEW York next ?
 ```
-
-### Finding the number of people in space
-
-OpenNotify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
-
-Read the above documentation and perform following tasks:
-
-* Get the response from astros.json endpoint
-* Count how many people are currently in space
-* List the names of people currently in space.
 
 
 ```python
@@ -233,23 +223,29 @@ print(response.text)
 
 
 ```python
-# You Code Here
+# __SOLUTION__ 
+# Check the API and interpret your results - when will ISS pass over NEW York next ?
 ```
+
+### Finding the number of people in space
+
+OpenNotify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
+
+Read the above documentation and perform following tasks:
+
+* Get the response from astros.json endpoint
+* Count how many people are currently in space
+* List the names of people currently in space.
 
 
 ```python
-# __SOLUTION__ 
-# Check the API and interpret your results - when will ISS pass over NEW York next ?
+# You Code Here
 ```
 
 
 ```python
 # Interpret the Results - How many people are in space and what are their names 
 ```
-
-## Summary 
-
-In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
 
 
 ```python
@@ -273,3 +269,7 @@ print(dict(data))
 # __SOLUTION__ 
 # Interpret the Results - How many people are in space and what are their names 
 ```
+
+## Summary 
+
+In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
