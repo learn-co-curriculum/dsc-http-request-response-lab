@@ -3,7 +3,7 @@
 
 ## Introduction 
 
-In this lab, we'll attempt to bring together everything we have thus far learned about APIs, Client/Server Communication principles and Python's `requests` library. We'll make use of the `requests` module's methods and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"**, in order to access NASA's space data. 
+In this lab, we'll make use of the `requests` module commands and properties seen in the previous lesson, to extract information for a web service called **"Open Notify"** to access NASA's space data. 
 
 ## Objectives
 
@@ -84,7 +84,7 @@ print(response.text)
 
 ### Check the next pass of International space station for a given location
 
-Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations
+Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
 
 
 ```python
@@ -107,9 +107,9 @@ print(response.status_code)
 
 So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
 
-if we look at the documentation for the OpenNotify API, we see that the `iss-pass.json` endpoint requires two parameters.
+if we look at the documentation for the OpenNotify API, we see that the ISS Pass endpoint requires two parameters.
 
-> The `/iss-Pass.json` endpoint returns when the ISS will next pass over a given location on earth. In order to compute this, we need to pass the coordinates of the location to the API. We do this by passing two parameters -- latitude and longitude.
+> The ISS Pass endpoint returns when the ISS will next pass over a given location on earth. In order to compute this, we need to pass the coordinates of the location to the API. We do this by passing two parameters -- latitude and longitude.
 
 We can do this by adding an optional keyword argument, params, to our request. In this case, there are two parameters we need to pass:
 
@@ -118,7 +118,7 @@ We can do this by adding an optional keyword argument, params, to our request. I
 
 Perform the following tasks :
 * Set parameters to reflect the lat and long of New York  (40.71, -74)
-* Send a get request to OpenNotify passing in the lat long parameters as k:v pairs in a dictionary i.e. {"lat": 40.71, "lon": -74}
+* Send a get request to OpenNotify passing in the lat long parameters as k:v pairs in a dictionary
 * Check the status code and interpret
 * Print the header information and the returned content
 
@@ -212,4 +212,4 @@ print(dict(data))
 
 ## Summary 
 
-In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next we'll look at connecting to APIs which are not OPEN , i.e. we would need to pass in some authentication information and filter the results. 
+In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
