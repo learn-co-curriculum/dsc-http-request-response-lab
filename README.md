@@ -58,7 +58,28 @@ The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (c
 # Your comments 
 ```
 
+
+```python
+# __SOLUTION__ 
+import requests
+# Make a get request to get the latest position of the international space station from the opennotify api.
+response = requests.get("http://api.open-notify.org/iss-now.json")
+
+# Print the status code of the response.
+print(response.status_code)
+```
+
+    200
+
+
 * Print the contents of the response and identify its current location
+
+
+```python
+# __SOLUTION__ 
+# Your comments 
+# code 200 -- everything went okay, and the result has been returned . 
+```
 
 
 ```python
@@ -70,9 +91,24 @@ The first endpoint we'll look at on OpenNotify is the` iss-now.json` endpoint (c
 # Interpret your results using the API
 ```
 
+
+```python
+# __SOLUTION__ 
+print(response.text)
+```
+
+    {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
+
+
 ### Check the next pass of International space station for a given location
 
 Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
+
+
+```python
+# __SOLUTION__ 
+# Interpret your results using the API - where is the space station right now ?
+```
 
 
 ```python
@@ -103,7 +139,28 @@ Perform the following tasks :
 
 
 ```python
+# __SOLUTION__ 
+# Make a get request to get the latest position of the international space station from the opennotify api.
+response = requests.get("http://api.open-notify.org/iss-pass.json")
+
+# Print the status code of the response.
+print(response.status_code)
+```
+
+    400
+
+
+
+```python
 # You Code Here
+```
+
+
+```python
+# __SOLUTION__ 
+# Your comments 
+# code 400 -- the server thinks you made a bad request. 
+# This can happen when you don't send along the right data, among other things.
 ```
 
 
@@ -123,7 +180,66 @@ Read the above documentation and perform following tasks:
 
 
 ```python
+# __SOLUTION__ 
+# Set up the parameters we want to pass to the API.
+# This is the latitude and longitude of New York City.
+parameters = {"lat": 40.71, "lon": -74}
+
+# Make a get request with the parameters.
+response = requests.get("http://api.open-notify.org/iss-pass.json", params=parameters)
+print(response.status_code)
+
+# Print the content of the response (the data the server returned)
+print(dict(response.headers))
+print(response.text)
+```
+
+    200
+    {'Server': 'nginx/1.10.3', 'Date': 'Mon, 11 Mar 2019 07:38:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
+    {
+      "message": "success", 
+      "request": {
+        "altitude": 100, 
+        "datetime": 1552289629, 
+        "latitude": 40.71, 
+        "longitude": -74.0, 
+        "passes": 5
+      }, 
+      "response": [
+        {
+          "duration": 550, 
+          "risetime": 1552290380
+        }, 
+        {
+          "duration": 581, 
+          "risetime": 1552296219
+        }, 
+        {
+          "duration": 642, 
+          "risetime": 1552302011
+        }, 
+        {
+          "duration": 541, 
+          "risetime": 1552307832
+        }, 
+        {
+          "duration": 601, 
+          "risetime": 1552362056
+        }
+      ]
+    }
+    
+
+
+
+```python
 # You Code Here
+```
+
+
+```python
+# __SOLUTION__ 
+# Check the API and interpret your results - when will ISS pass over NEW York next ?
 ```
 
 
@@ -134,3 +250,26 @@ Read the above documentation and perform following tasks:
 ## Summary 
 
 In this lesson we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
+
+
+```python
+# __SOLUTION__ 
+# Get the response from the API endpoint.
+response = requests.get("http://api.open-notify.org/astros.json")
+data = response.json()
+
+# 9 people are currently in space.
+print(data["number"])
+print(dict(data))
+
+```
+
+    3
+    {'people': [{'name': 'Oleg Kononenko', 'craft': 'ISS'}, {'name': 'David Saint-Jacques', 'craft': 'ISS'}, {'name': 'Anne McClain', 'craft': 'ISS'}], 'number': 3, 'message': 'success'}
+
+
+
+```python
+# __SOLUTION__ 
+# Interpret the Results - How many people are in space and what are their names 
+```
