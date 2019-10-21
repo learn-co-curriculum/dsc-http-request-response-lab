@@ -9,8 +9,10 @@ In this lab, we'll make use of the `requests` module commands and properties see
 
 You will be able to:
 
-* Understand and explain the HTTP Request/Response cycle
-* Make HTTP requests in Python using the ‘requests’ library
+* Explain the HTTP request/response cycle
+* List the status codes of responses and their meanings
+* Obtain and interpret status codes from responses
+* Make HTTP GET and POST requests in python using the `requests` library
 
 ## Open Notify 
 
@@ -50,7 +52,7 @@ The first endpoint we'll look at on OpenNotify is the ` iss-now.json` endpoint (
 
 
 ```python
-# You Code Here
+# Your Code Here
 ```
 
 
