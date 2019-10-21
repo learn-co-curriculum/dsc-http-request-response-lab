@@ -26,7 +26,7 @@ You will be able to:
     
 ### API endpoints
 
-OpenNotify has several API endpoints. 
+Open Notify has several API endpoints. 
 >An endpoint is a server route that is used to retrieve different data from the API. 
 
 For example, the `/comments` endpoint on the Reddit API might retrieve information about comments, whereas the `/users` endpoint might retrieve data about users. To access them, you would add the endpoint to the base url of the API.
@@ -45,7 +45,7 @@ In this lab, we'll be querying this API to retrieve live data about the Internat
 
 ### Current location of International Space Station
 
-The first endpoint we'll look at on OpenNotify is the ` iss-now.json` endpoint (current location of international space station). This endpoint gets the current latitude and longitude of the International Space Station.  Perform the following tasks 
+The first endpoint we'll look at on Open Notify is the ` iss-now.json` endpoint (current location of international space station). This endpoint gets the current latitude and longitude of the International Space Station.  Perform the following tasks 
 * Make a get request to get the latest position of the international space station from the opennotify api's `iss-now` endpoint at http://api.open-notify.org/iss-now.json
 * Check the status code of the response
 * Interpret the returned code
@@ -64,7 +64,7 @@ The first endpoint we'll look at on OpenNotify is the ` iss-now.json` endpoint (
 
 
 ```python
-# You Code Here
+# Your Code Here
 ```
 
 
@@ -78,7 +78,7 @@ Let's repeat the above for the second endpoint `iss-pass.json`. This end point i
 
 
 ```python
-# You Code Here
+# Your Code Here
 ```
 
 
@@ -88,24 +88,24 @@ Let's repeat the above for the second endpoint `iss-pass.json`. This end point i
 
 So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
 
-if we look at the documentation for the OpenNotify API, we see that the ISS Pass endpoint requires two parameters.
+If we look at the documentation for the Open Notify API, we see that the ISS Pass endpoint requires two parameters.
 
 > The ISS Pass endpoint returns when the ISS will next pass over a given location on earth. In order to compute this, we need to pass the coordinates of the location to the API. We do this by passing two parameters -- latitude and longitude.
 
-We can do this by adding an optional keyword argument, params, to our request. In this case, there are two parameters we need to pass:
+We can do this by adding an optional keyword argument, `params`, to our request. In this case, there are two parameters we need to pass:
 
-* lat -- The latitude of the location we want.
-* lon -- The longitude of the location we want.
+* `lat` -- The latitude of the location we want.
+* `lon` -- The longitude of the location we want.
 
 Perform the following tasks :
 * Set parameters to reflect the lat and long of New York  (40.71, -74)
-* Send a get request to OpenNotify passing in the lat long parameters as k:v pairs in a dictionary
+* Send a get request to Open Notify passing in the lat long parameters as k:v pairs in a dictionary
 * Check the status code and interpret
 * Print the header information and the returned content
 
 
 ```python
-# You Code Here
+# Your Code Here
 ```
 
 
@@ -115,7 +115,7 @@ Perform the following tasks :
 
 ### Finding the number of people in space
 
-OpenNotify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
+Open Notify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
 
 Read the above documentation and perform the following tasks:
 
@@ -125,7 +125,7 @@ Read the above documentation and perform the following tasks:
 
 
 ```python
-# You Code Here
+# Your Code Here
 ```
 
 
