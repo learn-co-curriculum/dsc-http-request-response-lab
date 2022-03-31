@@ -1,4 +1,3 @@
-
 # HTTP Request/Response Cycle - Lab
 
 ## Introduction 
@@ -99,7 +98,7 @@ print(response.status_code)
 print(response.text)
 ```
 
-    {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
+    {"timestamp": 1648752857, "message": "success", "iss_position": {"longitude": "119.4328", "latitude": "-44.9325"}}
 
 
 
@@ -108,9 +107,59 @@ print(response.text)
 # Interpret your results using the API - where is the space station right now ?
 ```
 
+
+```python
+# Your Code Here
+```
+
+### Finding the number of people in space
+
+Open Notify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
+
+Read the above documentation and perform the following tasks:
+
+* Get the response from astros.json endpoint
+* Count how many people are currently in space
+* List the names of people currently in space.
+
+
+```python
+# Your Code Here
+```
+
+
+```python
+# Interpret the Results - How many people are in space and what are their names 
+```
+
+
+```python
+# __SOLUTION__ 
+# Get the response from the API endpoint.
+response = requests.get("http://api.open-notify.org/astros.json")
+data = response.json()
+
+# 9 people are currently in space.
+print(data["number"])
+print(dict(data))
+
+```
+
+    10
+    {'message': 'success', 'people': [{'name': 'Zhai Zhigang', 'craft': 'Shenzhou 13'}, {'name': 'Wang Yaping', 'craft': 'Shenzhou 13'}, {'name': 'Ye Guangfu', 'craft': 'Shenzhou 13'}, {'name': 'Raja Chari', 'craft': 'ISS'}, {'name': 'Tom Marshburn', 'craft': 'ISS'}, {'name': 'Kayla Barron', 'craft': 'ISS'}, {'name': 'Matthias Maurer', 'craft': 'ISS'}, {'name': 'Oleg Artemyev', 'craft': 'ISS'}, {'name': 'Denis Matveev', 'craft': 'ISS'}, {'name': 'Sergey Korsakov.', 'craft': 'ISS'}], 'number': 10}
+
+
+
+```python
+# __SOLUTION__ 
+# Interpret the Results - How many people are in space and what are their names 
+```
+
+## Level Up (Optional) - Investigating other API endpoints
+
 ### Check the next pass of International space station for a given location
 
-Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
+Let's repeat the exercise for the another end point `iss-pass.json`. This end point is used to query the next pass of the space station on a given location.
 
 
 ```python
@@ -143,11 +192,40 @@ print(response.status_code)
 # This can happen when you don't send along the right data, among other things.
 ```
 
-So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
+The status code for the end point returned is 400, which indicates a client error. To see more detailed information, we can use `response.text` instead of `response.status_code`. 
 
-If we look at the documentation for the Open Notify API, we see that the ISS Pass endpoint requires two parameters.
 
-> The ISS Pass endpoint returns when the ISS will next pass over a given location on earth. In order to compute this, we need to pass the coordinates of the location to the API. We do this by passing two parameters -- latitude and longitude.
+```python
+# Your Code Here
+```
+
+
+```python
+# __SOLUTION__
+# Make the same request, but use response.text
+
+response = requests.get("http://api.open-notify.org/iss-pass.json")
+print(response.text)
+```
+
+    {
+      "message": "failure", 
+      "reason": "Latitude must be specified"
+    }
+    
+
+
+This end point is not visible from the documentation, but we can navigate to the source code of Opne Notify and see if we can gain more information on how to use this end point.
+
+Click on the `Source Code` Tab, and navigate to the Open Notify github repository.
+
+https://github.com/open-notify/Open-Notify-API
+
+If we look at the API spec this end point, we see that the ISS Pass endpoint requires two parameters.
+
+https://github.com/open-notify/Open-Notify-API/blob/master/app.py#L103
+
+>  The API returns a list of upcoming ISS passes for a particular location formatted as JSON. As input it expects a latitude/longitude pair, altitude and how many results to return. All fields are required.
 
 We can do this by adding an optional keyword argument, `params`, to our request. In this case, there are two parameters we need to pass:
 
@@ -187,36 +265,36 @@ print(response.text)
 ```
 
     200
-    {'Server': 'nginx/1.10.3', 'Date': 'Mon, 11 Mar 2019 07:38:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
+    {'Server': 'nginx/1.10.3', 'Date': 'Thu, 31 Mar 2022 18:54:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
     {
       "message": "success", 
       "request": {
         "altitude": 100, 
-        "datetime": 1552289629, 
+        "datetime": 1648752200, 
         "latitude": 40.71, 
         "longitude": -74.0, 
         "passes": 5
       }, 
       "response": [
         {
-          "duration": 550, 
-          "risetime": 1552290380
+          "duration": 647, 
+          "risetime": 1648755267
         }, 
         {
-          "duration": 581, 
-          "risetime": 1552296219
+          "duration": 580, 
+          "risetime": 1648761143
         }, 
         {
-          "duration": 642, 
-          "risetime": 1552302011
+          "duration": 570, 
+          "risetime": 1648767017
         }, 
         {
-          "duration": 541, 
-          "risetime": 1552307832
+          "duration": 639, 
+          "risetime": 1648772833
         }, 
         {
-          "duration": 601, 
-          "risetime": 1552362056
+          "duration": 627, 
+          "risetime": 1648778642
         }
       ]
     }
@@ -229,49 +307,11 @@ print(response.text)
 # Check the API and interpret your results - when will ISS pass over NEW York next ?
 ```
 
-### Finding the number of people in space
-
-Open Notify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
-
-Read the above documentation and perform the following tasks:
-
-* Get the response from astros.json endpoint
-* Count how many people are currently in space
-* List the names of people currently in space.
-
-
-```python
-# Your Code Here
-```
-
-
-```python
-# Interpret the Results - How many people are in space and what are their names 
-```
-
-
-```python
-# __SOLUTION__ 
-# Get the response from the API endpoint.
-response = requests.get("http://api.open-notify.org/astros.json")
-data = response.json()
-
-# 9 people are currently in space.
-print(data["number"])
-print(dict(data))
-
-```
-
-    3
-    {'people': [{'name': 'Oleg Kononenko', 'craft': 'ISS'}, {'name': 'David Saint-Jacques', 'craft': 'ISS'}, {'name': 'Anne McClain', 'craft': 'ISS'}], 'number': 3, 'message': 'success'}
-
-
-
-```python
-# __SOLUTION__ 
-# Interpret the Results - How many people are in space and what are their names 
-```
-
 ## Summary 
 
 In this lesson, we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
+
+
+```python
+
+```
