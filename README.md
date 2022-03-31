@@ -107,11 +107,6 @@ print(response.text)
 # Interpret your results using the API - where is the space station right now ?
 ```
 
-
-```python
-# Your Code Here
-```
-
 ### Finding the number of people in space
 
 Open Notify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
