@@ -1,4 +1,3 @@
-
 # HTTP Request/Response Cycle - Lab
 
 ## Introduction 
@@ -72,45 +71,9 @@ The first endpoint we'll look at on Open Notify is the ` iss-now.json` endpoint 
 # Interpret your results using the API
 ```
 
-### Check the next pass of International space station for a given location
-
-Let's repeat the above for the second endpoint `iss-pass.json`. This end point is used to query the next pass of the space station on a given location. Let's just run as above and record your observations.
-
 
 ```python
 # Your Code Here
-```
-
-
-```python
-# Your comments 
-```
-
-So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
-
-If we look at the documentation for the Open Notify API, we see that the ISS Pass endpoint requires two parameters.
-
-> The ISS Pass endpoint returns when the ISS will next pass over a given location on earth. In order to compute this, we need to pass the coordinates of the location to the API. We do this by passing two parameters -- latitude and longitude.
-
-We can do this by adding an optional keyword argument, `params`, to our request. In this case, there are two parameters we need to pass:
-
-* `lat` -- The latitude of the location we want.
-* `lon` -- The longitude of the location we want.
-
-Perform the following tasks :
-* Set parameters to reflect the lat and long of New York  (40.71, -74)
-* Send a get request to Open Notify passing in the lat long parameters as k:v pairs in a dictionary
-* Check the status code and interpret
-* Print the header information and the returned content
-
-
-```python
-# Your Code Here
-```
-
-
-```python
-# Check the API and interpret your results - when will ISS pass over NEW York next ?
 ```
 
 ### Finding the number of people in space
@@ -133,6 +96,67 @@ Read the above documentation and perform the following tasks:
 # Interpret the Results - How many people are in space and what are their names 
 ```
 
+## Level Up (Optional) - Investigating other API endpoints
+
+### Check the next pass of International space station for a given location
+
+Let's repeat the exercise for the another end point `iss-pass.json`. This end point is used to query the next pass of the space station on a given location.
+
+
+```python
+# Your Code Here
+```
+
+
+```python
+# Your comments 
+```
+
+The status code for the end point returned is 400, which indicates a client error. To see more detailed information, we can use `response.text` instead of `response.status_code`. 
+
+
+```python
+# Your Code Here
+```
+
+This end point is not visible from the documentation, but we can navigate to the source code of Opne Notify and see if we can gain more information on how to use this end point.
+
+Click on the `Source Code` Tab, and navigate to the Open Notify github repository.
+
+https://github.com/open-notify/Open-Notify-API
+
+If we look at the API spec this end point, we see that the ISS Pass endpoint requires two parameters.
+
+https://github.com/open-notify/Open-Notify-API/blob/master/app.py#L103
+
+>  The API returns a list of upcoming ISS passes for a particular location formatted as JSON. As input it expects a latitude/longitude pair, altitude and how many results to return. All fields are required.
+
+We can do this by adding an optional keyword argument, `params`, to our request. In this case, there are two parameters we need to pass:
+
+* `lat` -- The latitude of the location we want.
+* `lon` -- The longitude of the location we want.
+
+Perform the following tasks :
+* Set parameters to reflect the lat and long of New York  (40.71, -74)
+* Send a get request to Open Notify passing in the lat long parameters as k:v pairs in a dictionary
+* Check the status code and interpret
+* Print the header information and the returned content
+
+
+```python
+# Your Code Here
+```
+
+
+```python
+# Check the API and interpret your results - when will ISS pass over NEW York next ?
+```
+
 ## Summary 
 
 In this lesson, we saw how we can use request and response methods to query an Open API. We also saw how to look at the contents returned with the API calls and how to parse them. Next, we'll look at connecting to APIs which are not OPEN, i.e. we would need to pass in some authentication information and filter the results. 
+
+
+```python
+
+```
