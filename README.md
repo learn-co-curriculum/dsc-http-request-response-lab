@@ -71,11 +71,6 @@ The first endpoint we'll look at on Open Notify is the ` iss-now.json` endpoint 
 # Interpret your results using the API
 ```
 
-
-```python
-# Your Code Here
-```
-
 ### Finding the number of people in space
 
 Open Notify has one more API endpoint, `/astros.json`. It tells you how many people are currently in space. The format of the responses can be studied [HERE](http://open-notify.org/Open-Notify-API/People-In-Space/).
