@@ -118,7 +118,7 @@ print(dict(data))
 
 ### Check the next pass of International space station for a given location
 
-Let's repeat the exercise for the another end point `iss-pass.json`. This end point is used to query the next pass of the space station on a given location.
+Let's repeat the exercise for another endpoint `iss-pass.json`. This endpoint is used to query the next pass of the space station on a given location.
 
 
 ```python
@@ -156,13 +156,13 @@ print(response.text)
     
 
 
-This end point is not visible from the documentation, but we can navigate to the source code of Opne Notify and see if we can gain more information on how to use this end point.
+This endpoint is not visible from the documentation, but we can navigate to the source code of Open Notify and see if we can gain more information on how to use this endpoint.
 
-Click on the `Source Code` Tab, and navigate to the Open Notify github repository.
+Click on the `Source Code` Tab, and navigate to the Open Notify GitHub repository.
 
 https://github.com/open-notify/Open-Notify-API
 
-If we look at the API spec this end point, we see that the ISS Pass endpoint requires two parameters.
+If we look at the API spec this endpoint, we see that the ISS Pass endpoint requires two parameters.
 
 https://github.com/open-notify/Open-Notify-API/blob/master/app.py#L103
 
